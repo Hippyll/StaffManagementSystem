@@ -1,0 +1,64 @@
+员工信息管理系统
+===================
+
+##使用环境
+linux环境ubuntu 12.04版本及以上
+
+##特点
+1.集中管理员工信息！
+2.集中管理员工信息！！
+3.集中管理员工信息！！！
+
+##目录结构：
+StaffManagementSystem
+├── client			==》存放客户端相关文件
+│   ├── cliMain.c
+│   ├── handleServer.c
+│   └── Makefile
+├── include			==》存放相关头文件
+│   ├── smsClient.h
+│   ├── smsDebug.h
+│   ├── smsPublic.h
+│   └── smsServer.h
+├── public			==》存放公用文件
+│   ├── myGetString.c
+│   └── smsProtocal.c
+├── README			==》帮助文档
+├── server			==》存放服务端相关文件
+│   ├── createSqlTables.c
+│   ├── handleClient.c
+│   ├── Makefile
+│   ├── operationFunctions.c
+│   └── serMain.c
+└── sqlite3			==》存放数据库相关文件
+    └── sms.db
+
+##版本
+V1.0    更新时间：2021-08-10
+V2.0    更新时间：2021-08-11
+	1.去除服务端冗余操作提示信息
+	2.修复密码修改后登入错误后无法退出系统异常
+
+##使用方法及注意点
+1.连接方式：
+	Server端（需先执行）：
+		|-->cd至server目录下：
+			|-->make
+				|-->./可执行文件名 IP地址 端口号（0x0000~0xffff）
+					eg: ./testServer 127.0.0.1 1234
+	Client端：
+		|-->cd至client目录下：
+			|-->make
+				|-->./可执行文件名 IP地址 端口号（0x0000~0xffff）
+					eg: ./testClient 127.0.0.1 1234
+
+2.初始录入信息：
+	超级用户：
+		|-->用户名：admin	初始密码：admin666
+	普通用户：
+		|-->需超级用户填写相关信息后完成注册
+			|-->初始密码：123456
+
+3.注意点：
+	server端非必要无需退出，若必需退出前请先退出登入的帐号！！！
+		|-->若发生在帐号未退出前强制退出导致无法再次登录异常请在服务端make clean后再重新连接！
